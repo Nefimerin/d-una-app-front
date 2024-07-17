@@ -1,0 +1,38 @@
+
+<div class="card text-black mb-3">
+    <div class="card-header">Productos</div>
+    <div class="card-body">
+      <h5 class="card-title">Lista de productos</h5>
+      <div class="my-2 text-left">
+        <button class="btn btn-rounded btn-warning" type="button" [routerLink]="['/products/form']">
+          Create product
+        </button>
+      </div>
+      <div *ngIf="products?.length==0"  class="alert alert-info" >
+          No products found in the database
+      </div>
+      <table class="table table-bordered table-striped" *ngIf="products?.length!=0">
+        <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Precio</th>
+              <th>Tipo</th>
+              <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+              <td>{{product.productId}}</td>
+              <td>{{product.name}}</td>
+              <td>{{product.description}}</td>
+              <td>{{product.price}}</td>
+              <td>{{product.type}}</td>
+              <td>{{product.stock}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
