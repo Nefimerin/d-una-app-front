@@ -1,0 +1,61 @@
+
+<div class="card card-sm mb-3">
+    <div class="card-header">
+      Formulario de Rol
+    </div>
+    <div class="card-body">
+      <ul class="alert alert-danger" *ngIf="errores != undefined && errores.length > 0 ">
+        <li *ngFor="let err of errores">
+          {{err}}
+        </li>
+      </ul>
+      <form [formGroup]="roleForm">
+        <div class="form-group">
+          <label for="name">Tipo:</label>
+          <select formControlName="name" class="form-control">
+            <option value="" disabled selected>Elija un tipo</option>
+            <option value="DELIVERY">Repartidor</option>
+            <option value="ADMINISTRATOR">Administrador</option>
+            <option value="CUSTOMER">Cliente</option>
+          </select>
+          <!--Validaciones-->
+          <ng-template [ngIf]="name?.getError('required') && (name?.dirty || name?.touched)">
+            <div class="alert alert-danger">
+                <div class="container-error-message">
+                  El campo type es requerido
+                </div>
+             </div>
+          </ng-template>
+          <ng-template [ngIf]="name?.valid && (name?.dirty || name?.touched)">
+            <div class="alert alert-success">
+                <div class="container-success-message">
+                  Tipo válido!
+                </div>
+              </div>
+          </ng-template>
+        </div>
+
+
+        <div class="form-group">
+            <label>Descripcion:</label>
+            <input type="text" formControlName="description" class="form-control" />
+            <!--Validaciones-->
+            <ng-template [ngIf]="description?.getError('required') && (description?.dirty || description?.touched)">
+              <div class="alert alert-danger">
+                  <div class="container-error-message">
+                    El campo descripción es requerido
+                  </div>
+               </div>
+            </ng-template>
+            <ng-template [ngIf]="description?.valid && (description?.dirty || description?.touched)">
+              <div class="alert alert-success">
+                  <div class="container-success-message">
+                    Descripción válida!
+                  </div>
+                </div>
+            </ng-template>
+          </div>   
+        <button type="submit" (click)="saveRole()" class="btn btn-info">Enviar</button>
+      </form>
+    </div>
+  </div>

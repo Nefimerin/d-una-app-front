@@ -10,6 +10,9 @@ import { ListProductComponent } from './product/list-product/list-product.compon
 import { FormsModule } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateRoleComponent } from './role/create-role/create-role.component';
+import { ListRoleComponent } from './role/list-role/list-role.component';
+import { UpdateRoleComponent } from './role/update-role/update-role.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     CreateProductComponent,
     UpdateProductComponent,
-    ListProductComponent
+    ListProductComponent,
+    CreateRoleComponent,
+    ListRoleComponent,
+    UpdateRoleComponent
     ],
   imports: [
     BrowserModule,
