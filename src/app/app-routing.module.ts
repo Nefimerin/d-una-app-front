@@ -4,12 +4,15 @@ import { CreateProductComponent } from './product/create-product/create-product.
 import { ListProductComponent } from './product/list-product/list-product.component';
 import { CreateRoleComponent } from './role/create-role/create-role.component';
 import { ListRoleComponent } from './role/list-role/list-role.component';
+import { UpdateProductComponent } from './product/update-product/update-product.component';
 
 const routes: Routes = [
   { path: 'products/form', component: CreateProductComponent },
   { path: 'products/list', component: ListProductComponent },
   { path: 'role/form', component: CreateRoleComponent },
   { path: 'role/list', component: ListRoleComponent },
+  { path: 'products/details', component: UpdateProductComponent},
+
 ];
 
 @NgModule({

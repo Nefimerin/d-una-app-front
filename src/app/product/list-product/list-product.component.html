@@ -20,6 +20,7 @@
               <th>Precio</th>
               <th>Tipo</th>
               <th>Stock</th>
+              <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +31,10 @@
               <td>{{product.price}}</td>
               <td>{{product.type}}</td>
               <td>{{product.stock}}</td>
+              <td>
+                <button class="btn btn-danger mr-2" (click)="deleteProduct(product)">Eliminar</button>
+                <button class="btn btn-info" (click)="editProduct(product)">Ver</button>
+              </td>
             </tr>
         </tbody>
       </table>

@@ -38,7 +38,7 @@ export class CreateProductComponent {
     Object.assign(this.productModel,this.productForm.value);
     this.productService.saveProduct(this.productModel).subscribe(response => {
         Swal.fire('Producto registrado!', `Producto ${response.name} ha sido creado!`, 'success');
-        this.router.navigate(['/products']);
+        this.router.navigate(['/products/list']);
       },
       err => {
         this.errores = err.error as string [];
@@ -48,6 +48,8 @@ export class CreateProductComponent {
       }
     );
   }
+
+
 
   get name() { return this.productForm.get('name'); }
   get description() { return this.productForm.get('description'); }
