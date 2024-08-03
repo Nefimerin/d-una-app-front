@@ -44,7 +44,7 @@ export class CreateProductComponent {
         this.errores = err.error as string [];
         console.log("aqui",this.errores)
         console.error('codigo del error desde el backend: '+ err.status);
-        Swal.fire('Producto NO registrado!', `Verifique los campos e intente nuevamente `, 'error');
+        Swal.fire('Producto NO registrado!', err.error.message, 'error');
       }
     );
   }

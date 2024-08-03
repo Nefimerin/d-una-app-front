@@ -27,6 +27,7 @@ export class UpdateRoleComponent {
     this.roleService.findRoleById(roleId).subscribe(
       response => {
         const responseData = response;
+        console.log(responseData)
         if (responseData) {
           this.roleForm.patchValue({
             roleId: responseData.roleId,
@@ -59,7 +60,8 @@ export class UpdateRoleComponent {
       },
       err => {
         this.errores = err.error as string [];
-        Swal.fire('Rol NO actualizado!', `Verifique los campos e intente nuevamente `, 'error');
+        console.log(err)
+        Swal.fire('Rol NO actualizado!', err.error.message, 'error');
       }
     );
   }
