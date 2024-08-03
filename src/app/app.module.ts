@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateRoleComponent } from './role/create-role/create-role.component';
 import { ListRoleComponent } from './role/list-role/list-role.component';
 import { UpdateRoleComponent } from './role/update-role/update-role.component';
+import { ListUserComponent } from './user/list-user/list-user.component';
+import { CreateUserComponent } from './user/create-user/create-user.component';
+import { UpdateUserComponent } from './user/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { UpdateRoleComponent } from './role/update-role/update-role.component';
     ListProductComponent,
     CreateRoleComponent,
     ListRoleComponent,
-    UpdateRoleComponent
+    UpdateRoleComponent,
+    ListUserComponent,
+    CreateUserComponent,
+    UpdateUserComponent
     ],
   imports: [
     BrowserModule,

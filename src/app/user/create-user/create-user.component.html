@@ -1,0 +1,152 @@
+<div class="card card-sm mb-3">
+    <div class="card-header">
+      Formulario de Usuario
+    </div>
+    <div class="card-body">
+      <ul class="alert alert-danger" *ngIf="errores != undefined && errores.length > 0">
+        <li *ngFor="let err of errores">
+          {{err}}
+        </li>
+      </ul>
+      <form [formGroup]="userForm">
+        <div class="form-group">
+          <label>Nombre:</label>
+          <input type="text" formControlName="firstName" class="form-control" />
+          <!--Validaciones-->
+          <ng-template [ngIf]="firstName?.getError('required') && (firstName?.dirty || firstName?.touched)">
+            <div class="alert alert-danger">
+              <div class="container-error-message">
+                El campo nombre es requerido
+              </div>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="firstName?.valid && (firstName?.dirty || firstName?.touched)">
+            <div class="alert alert-success">
+              <div class="container-success-message">
+                Nombre válido!
+              </div>
+            </div>
+          </ng-template>
+        </div>
+  
+        <div class="form-group">
+          <label>Apellido:</label>
+          <input type="text" formControlName="lastName" class="form-control" />
+          <!--Validaciones-->
+          <ng-template [ngIf]="lastName?.getError('required') && (lastName?.dirty || lastName?.touched)">
+            <div class="alert alert-danger">
+              <div class="container-error-message">
+                El campo apellido es requerido
+              </div>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="lastName?.valid && (lastName?.dirty || lastName?.touched)">
+            <div class="alert alert-success">
+              <div class="container-success-message">
+                Apellido válido!
+              </div>
+            </div>
+          </ng-template>
+        </div>
+  
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="email" formControlName="email" class="form-control" />
+          <!--Validaciones-->
+          <ng-template [ngIf]="email?.getError('required') && (email?.dirty || email?.touched)">
+            <div class="alert alert-danger">
+              <div class="container-error-message">
+                El campo email es requerido
+              </div>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="email?.getError('email') && (email?.dirty || email?.touched)">
+            <div class="alert alert-danger">
+              <div class="container-error-message">
+                El campo email no es válido
+              </div>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="email?.valid && (email?.dirty || email?.touched)">
+            <div class="alert alert-success">
+              <div class="container-success-message">
+                Email válido!
+              </div>
+            </div>
+          </ng-template>
+        </div>
+  
+        <div class="form-group">
+          <label>Password:</label>
+          <input type="password" formControlName="password" class="form-control" />
+          <!--Validaciones-->
+          <ng-template [ngIf]="password?.getError('required') && (password?.dirty || password?.touched)">
+            <div class="alert alert-danger">
+              <div class="container-error-message">
+                El campo password es requerido
+              </div>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="password?.getError('minlength') && (password?.dirty || password?.touched)">
+            <div class="alert alert-danger">
+              <div class="container-error-message">
+                El campo password debe tener al menos 8 caracteres
+              </div>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="password?.valid && (password?.dirty || password?.touched)">
+            <div class="alert alert-success">
+              <div class="container-success-message">
+                Password válido!
+              </div>
+            </div>
+          </ng-template>
+        </div>
+  
+        <div class="form-group">
+          <label>Dirección:</label>
+          <input type="text" formControlName="address" class="form-control" />
+          <!--Validaciones-->
+          <ng-template [ngIf]="address?.getError('required') && (address?.dirty || address?.touched)">
+            <div class="alert alert-danger">
+              <div class="container-error-message">
+                El campo dirección es requerido
+              </div>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="address?.valid && (address?.dirty || address?.touched)">
+            <div class="alert alert-success">
+              <div class="container-success-message">
+                Dirección válida!
+              </div>
+            </div>
+          </ng-template>
+        </div>
+  
+        <div class="form-group">
+          <label for="roles">Roles:</label>
+          <select formControlName="roleIds" class="form-control" multiple>
+            <option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</option>
+          </select>
+          <!--Validaciones-->
+          <ng-template [ngIf]="roleIds?.getError('required') && (roleIds?.dirty || roleIds?.touched)">
+            <div class="alert alert-danger">
+              <div class="container-error-message">
+                Debe seleccionar al menos un rol
+              </div>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="roleIds?.valid && (roleIds?.dirty || roleIds?.touched)">
+            <div class="alert alert-success">
+              <div class="container-success-message">
+                Roles válidos!
+              </div>
+            </div>
+          </ng-template>
+        </div>
+  
+        <button type="submit" (click)="saveUser()" class="btn btn-info">Enviar</button>
+      </form>
+    </div>
+  </div>
+  

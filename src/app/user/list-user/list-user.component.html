@@ -1,0 +1,43 @@
+<div class="card text-black mb-3">
+    <div class="card-header">Usuarios</div>
+    <div class="card-body">
+      <h5 class="card-title">Lista de usuarios</h5>
+      <div class="my-2 text-left">
+        <button class="btn btn-rounded btn-warning" type="button" [routerLink]="['/users/form']">
+          Crear usuario
+        </button>
+      </div>
+      <div *ngIf="users?.length==0"  class="alert alert-info">
+          No se encontraron usuarios en la base de datos
+      </div>
+      <table class="table table-bordered table-striped" *ngIf="users?.length!=0">
+        <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Email</th>
+              <th>Roles</th>
+              <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{user.id}}</td>
+              <td>{{user.firstName}}</td>
+              <td>{{user.lastName}}</td>
+              <td>{{user.email}}</td>
+              <td>
+                <ul>
+                  <li *ngFor="let role of user.roles">{{role.name}}</li>
+                </ul>
+              </td>
+              <td>
+                <button class="btn btn-danger mr-2" (click)="deleteUser(user)">Eliminar</button>
+                <button class="btn btn-info" (click)="editUser(user)">Ver</button>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
