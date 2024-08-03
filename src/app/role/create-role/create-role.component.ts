@@ -37,12 +37,10 @@ export class CreateRoleComponent {
     Object.assign(this.roleModel,this.roleForm.value);
     this.roleService.saveRole(this.roleModel).subscribe(response => {
         Swal.fire('Rol registrado!', `Rol ${response.name} ha sido creado!`, 'success');
-        this.router.navigate(['/role']);
+        this.router.navigate(['role/list']);
       },
       err => {
         this.errores = err.error as string [];
-        console.log("aqui",this.errores)
-        console.error('codigo del error desde el backend: '+ err.status);
         Swal.fire('Rol NO registrado!', `Verifique los campos e intente nuevamente `, 'error');
       }
     );
