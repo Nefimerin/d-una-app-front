@@ -5,6 +5,8 @@ import { UserRequestDto } from 'src/app/model/UserDto';
 import { UserService } from 'src/app/service/user/user.service';
 import { RoleService } from 'src/app/service/role/role.service'; // Importar RoleService
 import Swal from 'sweetalert2';
+import { RoleDto } from 'src/app/model/RoleDto';
+import { passwordValidator } from 'src/app/validators/validators';
 
 @Component({
   selector: 'app-create-user',
@@ -35,7 +37,7 @@ export class CreateUserComponent implements OnInit {
       firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
       lastName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(8), passwordValidator()]),
       address: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       roleIds: new FormControl([], [Validators.required])
     });
@@ -55,6 +57,7 @@ export class CreateUserComponent implements OnInit {
 
   saveUser() {
     Object.assign(this.userModel, this.userForm.value);
+    console.log(this.userForm.value);
     this.userService.saveUser(this.userModel).subscribe(
       response => {
         Swal.fire('Usuario registrado!', `Usuario ${response.firstName} ${response.lastName} ha sido creado!`, 'success');
@@ -63,7 +66,7 @@ export class CreateUserComponent implements OnInit {
       err => {
         this.errores = err.error as string[];
         console.error('Código del error desde el backend: ' + err.status);
-        Swal.fire('Usuario NO registrado!', 'Verifique los campos e intente nuevamente', 'error');
+        Swal.fire('Usuario NO registrado!', err.error.message, 'error');
       }
     );
   }

@@ -87,10 +87,10 @@
               </div>
             </div>
           </ng-template>
-          <ng-template [ngIf]="password?.getError('minlength') && (password?.dirty || password?.touched)">
+          <ng-template [ngIf]="password?.getError('passwordStrength') && (password?.dirty || password?.touched)">
             <div class="alert alert-danger">
               <div class="container-error-message">
-                El campo password debe tener al menos 8 caracteres
+                El campo password es requerido no cumple con las características
               </div>
             </div>
           </ng-template>
@@ -101,6 +101,7 @@
               </div>
             </div>
           </ng-template>
+    
         </div>
   
         <div class="form-group">
@@ -126,7 +127,7 @@
         <div class="form-group">
           <label for="roles">Roles:</label>
           <select formControlName="roleIds" class="form-control" multiple>
-            <option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</option>
+            <option *ngFor="let role of roles" [value]="role.roleId">{{ role.name }}</option>
           </select>
           <!--Validaciones-->
           <ng-template [ngIf]="roleIds?.getError('required') && (roleIds?.dirty || roleIds?.touched)">
