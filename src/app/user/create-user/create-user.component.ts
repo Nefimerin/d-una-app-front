@@ -5,7 +5,6 @@ import { UserRequestDto } from 'src/app/model/UserDto';
 import { UserService } from 'src/app/service/user/user.service';
 import { RoleService } from 'src/app/service/role/role.service'; // Importar RoleService
 import Swal from 'sweetalert2';
-import { RoleDto } from 'src/app/model/RoleDto';
 import { passwordValidator } from 'src/app/validators/validators';
 
 @Component({

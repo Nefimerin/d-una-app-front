@@ -56,8 +56,8 @@ export class UserService {
     );
   }
 
-  findUserById(id: number): Observable<UserRequestDto> {
-    return this.httpClient.get<ApiResponse<UserRequestDto>>(`${this.urlPath}/${id}`).pipe(
+  findUserById(id: number): Observable<UserResponseDto> {
+    return this.httpClient.get<ApiResponse<UserResponseDto>>(`${this.urlPath}/${id}`).pipe(
       map(response => response.data),
       catchError((err: HttpErrorResponse) => {
         this.errors = err.error;
