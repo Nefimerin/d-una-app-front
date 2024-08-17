@@ -65,7 +65,7 @@ export class UpdateProductComponent {
       },
       err => {
         this.errores = err.error as string [];
-        Swal.fire('Producto NO actualizado!', `Verifique los campos e intente nuevamente `, 'error');
+        Swal.fire('Producto NO actualizado!', err.error.message, 'error');
       }
     );
   }

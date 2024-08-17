@@ -41,7 +41,7 @@ export class CreateRoleComponent {
       },
       err => {
         this.errores = err.error as string [];
-        Swal.fire('Rol NO registrado!', `Verifique los campos e intente nuevamente `, 'error');
+        Swal.fire('Rol NO registrado!', err.error.message, 'error');
       }
     );
   }

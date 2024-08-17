@@ -24,7 +24,7 @@ export class ListRoleComponent {
   }
 
   editRole(role: RoleDto) {
-    localStorage.setItem("roletId", role.roleId.toString());
+    localStorage.setItem("roleId", role.roleId.toString());
     this.router.navigate(["role/details"]);
   }
   
