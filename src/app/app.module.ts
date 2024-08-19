@@ -16,6 +16,9 @@ import { UpdateRoleComponent } from './role/update-role/update-role.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { UpdateUserComponent } from './user/update-user/update-user.component';
+import { ListOrderComponent } from './order/list-order/list-order.component';
+import { CreateOrderComponent } from './order/create-order/create-order.component';
+import { UpdateOrderComponent } from './order/update-order/update-order.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
     UpdateRoleComponent,
     ListUserComponent,
     CreateUserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    ListOrderComponent,
+    CreateOrderComponent,
+    UpdateOrderComponent
     ],
   imports: [
     BrowserModule,

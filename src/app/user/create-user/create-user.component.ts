@@ -15,12 +15,12 @@ import { passwordValidator } from 'src/app/validators/validators';
 export class CreateUserComponent implements OnInit {
   userForm!: FormGroup;
   errores!: string[];
-  roles: any[] = []; // Variable para almacenar los roles
+  roles: any[] = [];
   userModel: UserRequestDto = new UserRequestDto(0, '', '', '', '', '', []);
 
   constructor(
     private userService: UserService,
-    private roleService: RoleService, // Inyectar RoleService
+    private roleService: RoleService, 
     private formBuilder: FormBuilder,
     private router: Router
   ) {
@@ -28,7 +28,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadRoles(); // Cargar los roles al iniciar el componente
+    this.loadRoles();
   }
 
   createFormUser() {

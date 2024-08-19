@@ -8,6 +8,8 @@ import { UpdateProductComponent } from './product/update-product/update-product.
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
 import { UpdateRoleComponent } from './role/update-role/update-role.component';
+import { ListOrderComponent } from './order/list-order/list-order.component';
+import { CreateOrderComponent } from './order/create-order/create-order.component';
 import { UpdateUserComponent } from './user/update-user/update-user.component';
 
 const routes: Routes = [
@@ -19,9 +21,9 @@ const routes: Routes = [
   { path: 'users/form', component: CreateUserComponent},
   { path: 'users/list', component: ListUserComponent},
   { path: 'role/details', component: UpdateRoleComponent},
-  { path: 'users/details', component: UpdateUserComponent}
-  
-  
+  { path: 'users/details', component: UpdateUserComponent},
+  { path: 'order/list', component: ListOrderComponent},
+  { path: 'order/form', component: CreateOrderComponent}
 
 
 ];

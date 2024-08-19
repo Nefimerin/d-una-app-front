@@ -1,0 +1,38 @@
+<div class="card text-black mb-3">
+    <div class="card-header">Órdenes</div>
+    <div class="card-body">
+      <h5 class="card-title">Lista de órdenes</h5>
+      <div class="my-2 text-left">
+        <button class="btn btn-rounded btn-warning" type="button" [routerLink]="['/order/form']">
+          Crear orden
+        </button>
+      </div>
+      <div *ngIf="orders?.length == 0" class="alert alert-info">
+        No se encontraron órdenes en la base de datos
+      </div>
+      <table class="table table-bordered table-striped" *ngIf="orders?.length != 0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Total Precio</th>
+            <th>Usuario</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.orderId }}</td>
+            <td>{{ order.totalPrice }}</td>
+            <td>{{ order.user.firstName }} {{ order.user.lastName }}</td>
+            <td>{{ order.status }}</td>
+            <td>
+              <button class="btn btn-danger mr-2" (click)="deleteOrder(order)">Eliminar</button>
+              <button class="btn btn-info" (click)="editOrder(order)">Ver</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
