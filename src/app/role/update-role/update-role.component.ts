@@ -55,7 +55,7 @@ export class UpdateRoleComponent {
   saveRole() {
     Object.assign(this.roleModel,this.roleForm.value);
     this.roleService.updateRole(this.roleModel).subscribe(response => {
-        Swal.fire('Rol actualizado!', `Rol ${response.name} ha sido creado!`, 'success');
+        Swal.fire('Rol actualizado!', `Rol ${response.name} ha sido actualizadodo!`, 'success');
         this.router.navigate(['/role/list']);
       },
       err => {

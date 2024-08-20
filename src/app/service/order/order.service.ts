@@ -56,8 +56,8 @@ export class OrderService {
     );
   }
 
-  getOrderById(id: number): Observable<OrderRequestDto> {
-    return this.httpClient.get<ApiResponse<OrderRequestDto>>(`${this.urlPath}/${id}`).pipe(
+  getOrderById(id: number): Observable<OrderResponseDto> {
+    return this.httpClient.get<ApiResponse<OrderResponseDto>>(`${this.urlPath}/${id}`).pipe(
       map(response => response.data),
       catchError((err: HttpErrorResponse) => {
         this.errors = err.error;
